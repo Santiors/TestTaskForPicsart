@@ -41,7 +41,6 @@ public class CreatePage extends HomePage{
                 .clickOnContinue()
                 .enterPassword(user.getPassword())
                 .logIn()
-                .checkURL()
                 .clickOnNewProject();
     }
 
