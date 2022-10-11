@@ -2,16 +2,19 @@ package Picsart.Tests;
 
 import Picsart.FunctionalTest;
 import Picsart.Page.SettingsPage;
+import Picsart.RetryRunner;
 import Picsart.User;
 import lombok.SneakyThrows;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import java.awt.*;
 
 import static Picsart.TestUser.normalUser;
 
+@RunWith(RetryRunner.class)
 public class SuccessfulUploadProfileImageUITest extends FunctionalTest {
 
     private User testUser;

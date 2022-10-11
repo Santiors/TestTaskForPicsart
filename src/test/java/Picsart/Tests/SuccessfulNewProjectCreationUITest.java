@@ -2,14 +2,19 @@ package Picsart.Tests;
 
 import Picsart.FunctionalTest;
 import Picsart.Page.CreatePage;
+import Picsart.RetryRunner;
 import Picsart.User;
 import lombok.SneakyThrows;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.RepeatedTest;
+import org.junit.runner.RunWith;
+import org.junitpioneer.jupiter.RetryingTest;
 
 import static Picsart.TestUser.normalUser;
 
+@RunWith(RetryRunner.class)
 public class SuccessfulNewProjectCreationUITest extends FunctionalTest {
 
     private User testUser;
