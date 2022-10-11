@@ -10,5 +10,6 @@ public class SchemaValidatorAPITest {
 
     @Test
     public void givenUrl_whenJsonResponseConformsToSchema_thenCorrect() {
+
     }
 }
