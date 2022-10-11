@@ -29,12 +29,12 @@ public class SuccessfulUploadProfileImageUITest extends FunctionalTest {
     }
 
     @Test
-    public void newProject_creation_shouldBe_successful_when_user_in_logged_in_state()
-            throws AWTException {
+    public void newProject_creation_shouldBe_successful_when_user_in_logged_in_state() {
         settingsPage
                 .checkDefaultPageState()
                 .clickOnUpload()
-                .uploadImage();
+                .uploadImage()
+                .clickOnSaveChanges();
 
     }
 

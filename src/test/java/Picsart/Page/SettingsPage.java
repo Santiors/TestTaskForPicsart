@@ -21,6 +21,7 @@ public class SettingsPage extends HomePage{
     public static final String RELATIVE_URL = BASE_URL + "settings";
 
     private SelenideElement uploadButtonTest = $(byText("Upload"));
+    private SelenideElement saveChangesButton = $(byAttribute("data-test", "save-changes-button"));
 
     public static SettingsPage getSettingsPage(User user) {
         return (SettingsPage) open(HomePage.BASE_URL, SettingsPage.class)
@@ -84,6 +85,15 @@ public class SettingsPage extends HomePage{
             $(byText("You can upload jpg. or png image files. Max size 2mb.")).should(exist);
         } catch (Exception e) {
             log.error("No info text");
+        }
+        return this;
+    }
+
+    public SettingsPage clickOnSaveChanges() {
+        try {
+            saveChangesButton.click();
+        } catch (Exception e) {
+            log.error("Can't save changes");
         }
         return this;
     }
