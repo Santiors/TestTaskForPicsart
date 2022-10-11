@@ -38,6 +38,8 @@ public class SuccessfulUploadProfileImageUITest extends FunctionalTest {
     @SneakyThrows
     @After
     public void tearDown() {
+        settingsPage
+                .logOut();
 
     }
 }

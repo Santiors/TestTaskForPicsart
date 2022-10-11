@@ -75,4 +75,9 @@ public class SettingsPage extends HomePage{
         $(byText("You can upload jpg. or png image files. Max size 2mb.")).should(exist);
         return this;
     }
+
+    public void logOut() {
+        moveToHover();
+        logoutButton.click();
+    }
 }
