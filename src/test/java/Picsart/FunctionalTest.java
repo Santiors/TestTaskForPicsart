@@ -3,25 +3,24 @@ package Picsart;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.After;
 import org.junit.BeforeClass;
-import org.junit.Rule;
-import org.junit.rules.TestRule;
 
 import static Picsart.TestUser.initializeUsers;
 import static java.util.Objects.nonNull;
 
-@Slf4j
 public abstract class FunctionalTest {
 
     private static boolean isConfigured;
 
-    @Rule
-    public TestRule watcher = new TestWatcherRule();
-
+    public static Logger log = LogManager.getLogger();
 
     @BeforeClass
     public static synchronized void configure() {
+        log.info("===================TEST STARTED===================");
+
         if (isConfigured) {
             return;
         }
@@ -34,7 +33,6 @@ public abstract class FunctionalTest {
 
         Configuration.timeout = 8000;
         Configuration.browserCapabilities.setCapability("enableVNC", true);
-        Configuration.browserCapabilities.setCapability("enableVideo", true);
 
         log.info("browserName=" + Configuration.browser + ", " + "browserVersion=" + Configuration.browserVersion);
 
@@ -46,5 +44,6 @@ public abstract class FunctionalTest {
         if (WebDriverRunner.hasWebDriverStarted()) {
             WebDriverRunner.getWebDriver().quit();
         }
+        log.info("===================TEST FINISHED===================");
     }
 }

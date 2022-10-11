@@ -19,7 +19,6 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-@Log
 public class CreatePage extends HomePage{
 
     public static final String RELATIVE_URL = BASE_URL + "create";
@@ -45,9 +44,13 @@ public class CreatePage extends HomePage{
     }
 
     public CreatePage switchToEditorTab(){
-        Set<String> handles = getWebDriver().getWindowHandles();
-        List<String> tabs = new ArrayList<String>(handles);
-        driver.switchTo().window(tabs.get(1));
+        try {
+            Set<String> handles = getWebDriver().getWindowHandles();
+            List<String> tabs = new ArrayList<String>(handles);
+            driver.switchTo().window(tabs.get(1));
+        } catch (Exception e) {
+            log.error("Can't switch to editor tab");
+        }
         return this;
     }
 
@@ -74,19 +77,32 @@ public class CreatePage extends HomePage{
     }
 
     public CreatePage closeHints() {
-        closeHintsPopUpButton.click();
+        try {
+            closeHintsPopUpButton.click();
+        } catch (Exception e){
+            log.error("Can't close hints popup");
+        }
+
         return this;
     }
 
     public CreatePage checkDefaultCategory() {
-        layoutCategory.is(enabled);
+        try {
+            layoutCategory.is(enabled);
+        } catch (Exception e) {
+            log.error("Layout is not enabled");
+        }
         return this;
     }
 
     public void logOut() {
-        homePageButton.click();
-        moveToHover();
-        logoutButton.click();
+        try {
+            homePageButton.click();
+            moveToHover();
+            logoutButton.click();
+        } catch (Exception e) {
+            log.error("Can't logout from account");
+        }
     }
 
 }

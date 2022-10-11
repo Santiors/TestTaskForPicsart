@@ -3,6 +3,8 @@ package Picsart.Page;
 import Picsart.User;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 
@@ -36,22 +38,9 @@ public class HomePage {
     public SelenideElement englishLanguage = $(byText("English"));
     public SelenideElement acceptCookieButton = $(byId("onetrust-accept-btn-handler"));
 
+    public static Logger log = LogManager.getLogger();
+
     WebDriver driver = getWebDriver();
-
-
-    public static HomePage getHomePage(User user) {
-        return open(HomePage.BASE_URL, HomePage.class)
-                .switchLanguage()
-                .goToLogin()
-                .acceptCookie()
-                .loginWithEmail()
-                .enterEmail(user.getUserName())
-                .clickOnContinue()
-                .enterPassword(user.getPassword())
-                .logIn()
-                .checkURL()
-                .waitForPageLoading();
-    }
 
     public HomePage waitForPageLoading() {
         logo.should(exist);
@@ -60,27 +49,48 @@ public class HomePage {
     }
 
     protected HomePage goToLogin(){
-        logInButtonOnTop.click();
+        try {
+            logInButtonOnTop.click();
+        } catch (Exception e) {
+            log.error("Can't Login into account");
+        }
         return this;
     }
 
     protected HomePage enterEmail(String email) {
-        emailField.setValue(email);
+        try {
+            emailField.setValue(email);
+
+        } catch (Exception e){
+            log.error("Can't enter e-mail");
+        }
         return this;
     }
 
     protected HomePage enterPassword(String password) {
-        passwordField.setValue(password);
+        try {
+            passwordField.setValue(password);
+        } catch (Exception e){
+        log.error("Can't enter password");
+    }
         return this;
     }
 
     protected HomePage logIn() {
-        logInButton.click();
+        try {
+            logInButton.click();
+        } catch (Exception e){
+            log.error("Couldn't login into account");
+        }
         return this;
     }
 
     public HomePage clickOnNewProject(){
-        newProjectButton.click();
+        try {
+            newProjectButton.click();
+        } catch (Exception e){
+            log.error("Can't create a new project");
+        }
         return this;
     }
 
@@ -94,23 +104,39 @@ public class HomePage {
     }
 
     public HomePage loginWithEmail() {
-        continueWithEmailButton.click();
+        try {
+            continueWithEmailButton.click();
+        } catch (Exception e) {
+            log.error("Can't click on Continue With Email");
+        }
         return this;
     }
 
     public HomePage clickOnContinue() {
-        continueButton.click();
+        try {
+            continueButton.click();
+        } catch (Exception e) {
+            log.error("Can't click on Continue");
+        }
         return this;
     }
 
     public HomePage switchLanguage() {
-        switchLanguageButton.click();
-        englishLanguage.click();
+        try {
+            switchLanguageButton.click();
+            englishLanguage.click();
+        } catch (Exception e){
+            log.error("Can't switch to English Language");
+        }
         return this;
     }
 
     public HomePage acceptCookie() {
-        acceptCookieButton.click();
+        try {
+            acceptCookieButton.click();
+        } catch (Exception e) {
+            log.error("Can't accept cookie");
+        }
         return this;
     }
 
@@ -124,7 +150,11 @@ public class HomePage {
     }
 
     public HomePage goToSettings() {
-        settingsButton.click();
+        try {
+            settingsButton.click();
+        } catch (Exception e) {
+            log.error("Can't go to Settings Page");
+        }
         return this;
     }
 
