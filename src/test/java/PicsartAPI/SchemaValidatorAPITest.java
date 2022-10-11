@@ -1,4 +1,4 @@
-package API;
+package PicsartAPI;
 
 import org.junit.Test;
 import static io.restassured.RestAssured.*;
@@ -7,7 +7,7 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInC
 public class SchemaValidatorAPITest {
 
     @Test
-    public void givenUrl_whenJsonResponseConformsToSchema_thenCorrect() {
+    public void givenRequest_should_match_JSONSchema_when_get_request() {
         get("https://api.picsart.com/localizations/en/messages?project=reusable_components,photo_editor")
                 .then()
                 .assertThat()
