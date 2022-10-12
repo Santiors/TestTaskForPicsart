@@ -9,4 +9,4 @@ Steps:</p>
 <li class="has-line-data" data-line-start="7" data-line-end="8">Implement Jenkins pipeline, to run it from Jenkins</li>
 </ol>
 <p class="has-line-data" data-line-start="10" data-line-end="12">Pipeline - TestTaskForPicsart<br>
-Setup Jenkins for automated tests with Github CI integration when commits</p>
+Setup Jenkins for automated tests with GitHub CI integration when commits</p>
