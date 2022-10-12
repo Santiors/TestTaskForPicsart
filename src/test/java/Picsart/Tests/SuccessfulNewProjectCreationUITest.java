@@ -40,7 +40,6 @@ public class SuccessfulNewProjectCreationUITest extends FunctionalTest {
         } catch (Exception e) {
             log.info(TestExecutionResult.failed(e));
         }
-        //test
     }
 
     @SneakyThrows
