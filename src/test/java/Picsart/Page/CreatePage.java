@@ -43,6 +43,7 @@ public class CreatePage extends HomePage{
                 .clickOnNewProject();
     }
 
+    //need to switch to another tab, because editor page opens in new tab
     public CreatePage switchToEditorTab(){
         try {
             Set<String> handles = getWebDriver().getWindowHandles();

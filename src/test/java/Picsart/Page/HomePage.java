@@ -13,6 +13,7 @@ import static com.codeborne.selenide.Selectors.byId;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.byTitle;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.sleep;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -139,10 +140,14 @@ public class HomePage {
     }
 
     public HomePage moveToHover() {
+        //need additional waiting cause of front
+        sleep(5000);
         Actions actions = new Actions(driver);
         actions
                 .moveToElement(profileButton)
                 .build()
+                .perform();
+        actions
                 .perform();
         return this;
     }

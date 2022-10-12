@@ -20,7 +20,8 @@ public class SettingsPage extends HomePage{
 
     public static final String RELATIVE_URL = BASE_URL + "settings";
 
-    private SelenideElement uploadButtonTest = $(byText("Upload"));
+    private SelenideElement uploadButton = $(byText("Upload"));
+    private SelenideElement repeatableUploadButton = $(byText("Upload New Photo"));
     private SelenideElement saveChangesButton = $(byAttribute("data-test", "save-changes-button"));
 
     public static SettingsPage getSettingsPage(User user) {
@@ -61,9 +62,9 @@ public class SettingsPage extends HomePage{
 
     public SettingsPage clickOnUpload() {
         try {
-            uploadButtonTest.click();
+            repeatableUploadButton.click();
         } catch (Exception e) {
-            log.error("Can't click on Upload Button");
+            uploadButton.click();
         }
         return this;
     }
