@@ -23,5 +23,6 @@ public class SchemaValidatorAPITest {
         } catch (Exception e) {
             log.info(TestExecutionResult.failed(e));
         }
+        //test
     }
 }
