@@ -1,0 +1,5 @@
+# This file is necessary for passing UI tests successfully. It contains information about existing test users
+
+uiTestUsers:
+- userName: "testaccfortesttask@gmail.com"
+  password: "TestTestTest1"

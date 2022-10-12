@@ -1,6 +1,5 @@
 package Picsart.Page;
 
-import Picsart.User;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import org.apache.logging.log4j.LogManager;
@@ -14,7 +13,6 @@ import static com.codeborne.selenide.Selectors.byId;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.byTitle;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
