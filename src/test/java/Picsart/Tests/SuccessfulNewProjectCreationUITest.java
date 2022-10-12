@@ -30,7 +30,7 @@ public class SuccessfulNewProjectCreationUITest extends FunctionalTest {
     }
 
     @Test
-    public void newProject_creation_shouldBe_successful_when_user_in_logged_in_state(){
+    public void newProject_creation_shouldBe_successful_when_user_in_loggedIn_state(){
         try {
             createPage
                     .checkDefaultPageState()

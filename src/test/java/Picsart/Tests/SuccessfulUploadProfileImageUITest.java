@@ -30,7 +30,7 @@ public class SuccessfulUploadProfileImageUITest extends FunctionalTest {
     }
 
     @Test
-    public void newProject_creation_shouldBe_successful_when_user_in_logged_in_state() {
+    public void upload_new_image_shouldBe_successful_when_user_in_loggedIn_state_and_in_settings() {
         try {
             settingsPage
                     .checkDefaultPageState()
