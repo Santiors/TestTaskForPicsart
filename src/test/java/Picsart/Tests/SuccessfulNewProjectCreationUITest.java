@@ -9,6 +9,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.RepeatedTest;
+import org.junit.platform.engine.TestExecutionResult;
 import org.junit.runner.RunWith;
 import org.junitpioneer.jupiter.RetryingTest;
 
@@ -30,10 +31,15 @@ public class SuccessfulNewProjectCreationUITest extends FunctionalTest {
 
     @Test
     public void newProject_creation_shouldBe_successful_when_user_in_logged_in_state(){
-        createPage
-                .checkDefaultPageState()
-                .closeHints()
-                .checkDefaultCategory();
+        try {
+            createPage
+                    .checkDefaultPageState()
+                    .closeHints()
+                    .checkDefaultCategory();
+            log.info(TestExecutionResult.successful());
+        } catch (Exception e) {
+            log.info(TestExecutionResult.failed(e));
+        }
     }
 
     @SneakyThrows
