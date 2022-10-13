@@ -7,6 +7,8 @@ import com.codeborne.selenide.WebDriverRunner;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.net.URISyntaxException;
+import java.nio.file.Paths;
 
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Selectors.byAttribute;
@@ -69,8 +71,11 @@ public class SettingsPage extends HomePage{
         return this;
     }
 
-    public SettingsPage uploadImage() throws AWTException {
-            $("#upload-avatar").uploadFile(new File("src/test/resources/testImg.png"));
+    public SettingsPage uploadImage() throws AWTException, URISyntaxException {
+            String resourceName = "testImg" + ".png";
+            File resource = Paths.get(ClassLoader.getSystemResource(resourceName).toURI()).toFile();
+//            $("#upload-avatar").uploadFile(new File(System.getProperty("imageFilePath")));
+            $("#upload-avatar").uploadFile(resource);
             Robot robot = new Robot();
             robot.keyPress(KeyEvent.VK_ESCAPE);
             robot.keyRelease(KeyEvent.VK_ESCAPE);
