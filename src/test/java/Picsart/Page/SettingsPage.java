@@ -76,9 +76,9 @@ public class SettingsPage extends HomePage{
             File resource = Paths.get(ClassLoader.getSystemResource(resourceName).toURI()).toFile();
 //            $("#upload-avatar").uploadFile(new File(System.getProperty("imageFilePath")));
             $("#upload-avatar").uploadFile(resource);
-            Robot robot = new Robot();
-            robot.keyPress(KeyEvent.VK_ESCAPE);
-            robot.keyRelease(KeyEvent.VK_ESCAPE);
+//            Robot robot = new Robot();
+//            robot.keyPress(KeyEvent.VK_ESCAPE);
+//            robot.keyRelease(KeyEvent.VK_ESCAPE);
         return this;
     }
 
