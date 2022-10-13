@@ -71,14 +71,10 @@ public class SettingsPage extends HomePage{
         return this;
     }
 
-    public SettingsPage uploadImage() throws AWTException, URISyntaxException {
-            String resourceName = "testImg" + ".png";
-            File resource = Paths.get(ClassLoader.getSystemResource(resourceName).toURI()).toFile();
-//            $("#upload-avatar").uploadFile(new File(System.getProperty("imageFilePath")));
-            $("#upload-avatar").uploadFile(resource);
-//            Robot robot = new Robot();
-//            robot.keyPress(KeyEvent.VK_ESCAPE);
-//            robot.keyRelease(KeyEvent.VK_ESCAPE);
+    public SettingsPage uploadImage() throws URISyntaxException {
+        String resourceName = "testImg" + ".png";
+        File resource = Paths.get(ClassLoader.getSystemResource(resourceName).toURI()).toFile();
+        $("#upload-avatar").uploadFile(resource);
         return this;
     }
 
