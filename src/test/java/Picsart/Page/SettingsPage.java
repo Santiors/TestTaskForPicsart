@@ -72,9 +72,18 @@ public class SettingsPage extends HomePage{
     }
 
     public SettingsPage uploadImage() throws URISyntaxException {
+
         String resourceName = "testImg" + ".png";
         File resource = Paths.get(ClassLoader.getSystemResource(resourceName).toURI()).toFile();
         $("#upload-avatar").uploadFile(resource);
+
+//        Here is additional code for close file explorer window, but it produce errors with Selenoid when
+//        working in Jenkins (locally it works fine)
+/*
+            Robot robot = new Robot();
+            robot.keyPress(KeyEvent.VK_ESCAPE);
+            robot.keyRelease(KeyEvent.VK_ESCAPE);
+*/
         return this;
     }
 
