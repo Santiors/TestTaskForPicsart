@@ -29,8 +29,8 @@ public class HomePage {
     private SelenideElement continueButton = $(byText("Continue"));
     private SelenideElement continueWithEmailButton = $(byText("Continue with Email"));
     private SelenideElement settingsButton = $(byAttribute("data-test","settings-button"));
-    public  SelenideElement logo = $(byAttribute("data-test", "picsart-logo"));
     private SelenideElement newProjectButton = $(byAttribute("data-testid", "create-search-button"));
+    public  SelenideElement logo = $(byAttribute("data-test", "picsart-logo"));
     public  SelenideElement profileButton = $(byTitle("User avatar"));
     public SelenideElement logoutButton = $(byAttribute("data-test","logout-button"));
     public SelenideElement switchLanguageButton = $(byAttribute("data-testid","language-switcher"));
