@@ -70,7 +70,7 @@ public class SettingsPage extends HomePage{
     }
 
     public SettingsPage uploadImage() throws AWTException {
-            $("#upload-avatar").uploadFile(new File("src/test/java/Picsart/data/testImg.png"));
+            $("#upload-avatar").uploadFile(new File("src/test/resources/testImg.png"));
             Robot robot = new Robot();
             robot.keyPress(KeyEvent.VK_ESCAPE);
             robot.keyRelease(KeyEvent.VK_ESCAPE);
